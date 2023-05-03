@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+
+  <meta property="og:type" content="website">
+
+  <meta name="viewport" content="width=device-width">
+
+  <title>Random Number Generator</title>
+
+  <link href="main.css" rel="stylesheet" type="text/css" />
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+  <meta name="title" content="Random Number Generator">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:title" content="Random Number Generator">
+  <meta property="twitter:title" content="Random Number Generator">
+
+
+  <meta name="description" content="A simple random number generator. No BS." />
+  <meta property="og:description" content="A simple random number generator. No BS." />
+  <meta property="twitter:description" content="A simple random number generator. No BS." />
+  <meta property="og:description" content="A simple random number generator. No BS.">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+
+  <meta name="keywords" content="RNG, Random Number Generator, Random Number">
+  <meta name="author" content="BomberFish">
+  <meta name="twitter:title" content="Random Number Generator">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script>
+    function showDecimal() {
+      const placesWrapper = document.getElementById("placesWrapper")
+      const places = document.getElementById("places")
+      const precise = document.getElementById("precise");
+      if (precise.checked) {
+        placesWrapper.style.display = "block"
+      } else {
+        placesWrapper.style.display = "none"
+      }
+    }
+
+    function checkMax() {
+      if(places.value>7) {
+        places.value=7
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <h2 style="color: var(--warning);
+    -webkit-animation: alert 1.75s cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal;
+    -moz-animation: alert 1.75s cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal;
+    -ms-animation: alert 1.75s cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal;
+    animation: alert 1.75s cubic-bezier(0.4, 0, 0.2, 1) 0s 1 normal; font-weight: 900; font-size: 2em">JavaScript is
+      required for this website to function!</h2>
+  </noscript>
+  <div id="wrapper">
+    <div id="inner-wrapper">
+    <label for="min">Min: &nbsp;
+      <input id="min" name="min" type="number" value="1" </input>
+    </label><br><br>
+    <label for="max">Max: &nbsp;
+      <input id="max" name="max" type="number" value="10"></input>
+    </label>
+    <br><br>
+    <button id="gen" style="font-weight: bold; font-size: 1.25em"><span>Generate!</span></button><br>
+    <label class="pure-material-switch">
+      <input id="precise" type="checkbox" value="unchecked" onclick="showDecimal()" unchecked>
+      <span>Decimal Mode</span>
+    </label>
+    <br><br>
+    <span id="placesWrapper">
+      <label for="places">Decimal Places: &nbsp;</label>
+      <input id="places" name="places" type="number" value="2" max="7" onchange="checkMax()"></input>
+    </span>
+    <br>
+    <div class="center" id="number">0</div>
+    <h3>Popular Presets:</h3>
+    <button id="d6" class="green"><span>6-sided Die</span></button>&nbsp;
+    <button id="d20" class="yellow"><span>20-sided Die</span></button>&nbsp;
+    <button id="d100" class="red"><span>100-sided Die</span></button>
+    </div>
+    <script src="main.js"></script>
+  </div>
+</body>
+
+</html>
